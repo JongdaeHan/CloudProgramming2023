@@ -131,3 +131,7 @@ dmypy.json
 # Pycharm files
 .idea/
 
+#DB migrations
+
+migrations/
+
