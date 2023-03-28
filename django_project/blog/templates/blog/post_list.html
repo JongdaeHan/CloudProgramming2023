@@ -6,7 +6,7 @@
 </head>
 <body>
     <h1>BLOG</h1>
-    {% for post in posts %}
+    {% for post in post_list %}
         <hr/>
         <h2><a href = "{{ post.get_absolute_url }}"> {{ post.title }}</a> </h2>
         <h4>{{ post.created_at }} / {{ post.updated_at }}</h4>
