@@ -135,3 +135,6 @@ dmypy.json
 
 migrations/
 
+
+#media
+_media/
