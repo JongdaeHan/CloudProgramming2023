@@ -82,8 +82,12 @@
 
         <!-- Post Content -->
         <p>{{ post.content }}</p>
-        <a href="{{ post.file_upload.url }}" class="btn btn-outline-primary">첨부파일 다운로드</a>
+          {% if post.file_upload %}
+
+          <a href="{{ post.file_upload.url }}" class="btn btn-outline-primary">첨부파일 다운로드</a>
         {{ post.get_file_name }}
+
+       {% endif %}
         <hr>
 
         <!-- Comments Form -->
