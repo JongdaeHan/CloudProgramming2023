@@ -89,6 +89,13 @@
 
        {% endif %}
         <hr>
+        {% if post.tag.exists %}
+            <i class = "fas fa-tags">
+            {% for tag in post.tag.iterator %}
+                <a href="{{ tag.get_absolute_url }}">{{ tag }} </a>
+            {% endfor %}
+            </i>
+        {% endif %}
 
         <!-- Comments Form -->
         <div class="card my-4">
