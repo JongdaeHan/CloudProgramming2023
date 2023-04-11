@@ -96,6 +96,10 @@
             {% endfor %}
             </i>
         {% endif %}
+        {% if user.is_authenticated and user == post.author %}
+            <a href="/blog/update_post/{{ post.pk }}">글 수정하기</a>
+        {% endif %}
+
 
         <!-- Comments Form -->
         <div class="card my-4">
