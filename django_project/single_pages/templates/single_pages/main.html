@@ -6,9 +6,15 @@
 </head>
 <body>
 <nav><a href="/blog/">BLOG</a></nav>
-<h1>클라우드프로그래밍 잼잼
+<h1>대문페이지</h1>
 
-    </h1>
+{% for post in recent_posts %}
+    <div>
+        <h4><a href="{{ post.get_absolute_url }}">{{ post.title }} by {{ post.author }}</a></h4>
+        <p> {{ post.content | truncatewords:30 }}</p>
+    </div>
+{% endfor %}
+
 
 </body>
 </html>

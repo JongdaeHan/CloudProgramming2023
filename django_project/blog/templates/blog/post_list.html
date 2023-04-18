@@ -11,43 +11,43 @@
     {% endif %}
 
 
-     <h1>Blog {% if category %} postings with category {{ category }}
-     {% endif %}
-     {% if tag %} postings with tag {{ tag }}
+    <h1>Blog {% if category %} postings with category {{ category }}
+    {% endif %}
+        {% if tag %} postings with tag {{ tag }}
 
-     {% endif %}
-     
-     </h1>
+        {% endif %}
 
-                {% for p in post_list %}
-                <!-- Blog Post -->
-                <div class="card mb-4">
-                    {% if p.head_image %}
-                        <img class="card-img-top" src="{{ p.head_image.url }}" alt="Card image cap">
-                    {% else %}
-                        <img class="card-img-top" src="/media/blog/images/2023/03/28/IMG_7011_SnIslMv.jpg">
-                    {% endif %}
-                    <div class="card-body">
-                        <h2 class="card-title">{{ p.title}} ({{ p.category }})</h2>
-                        <p class="card-text">{{ p.get_content_markdown | truncatewords:30 |safe }}</p>
+    </h1>
 
-                        <a href="{{ p.get_absolute_url }}" class="btn btn-primary">Read More &rarr;</a>
-                    </div>
-                    <div class="card-footer text-muted">
-                        Posted on {{ p.created_at}} by
-                        <a href="#"> {{ p.author }})</a>
-                    </div>
-                </div>
-                {% endfor %}
+    {% for p in post_list %}
+        <!-- Blog Post -->
+        <div class="card mb-4">
+            {% if p.head_image %}
+                <img class="card-img-top" src="{{ p.head_image.url }}" alt="Card image cap">
+            {% else %}
+                <img class="card-img-top" src="/media/blog/images/2023/03/28/IMG_7011_SnIslMv.jpg">
+            {% endif %}
+            <div class="card-body">
+                <h2 class="card-title">{{ p.title }} ({{ p.category }})</h2>
+                <p class="card-text">{{ p.get_content_markdown | truncatewords:30 |safe }}</p>
+
+                <a href="{{ p.get_absolute_url }}" class="btn btn-primary">Read More &rarr;</a>
+            </div>
+            <div class="card-footer text-muted">
+                Posted on {{ p.created_at }} by
+                <a href="#"> {{ p.author }})</a>
+            </div>
+        </div>
+    {% endfor %}
 
 
-                <!-- Pagination -->
-                <ul class="pagination justify-content-center mb-4">
-                    <li class="page-item">
-                        <a class="page-link" href="#">&larr; Older</a>
-                    </li>
-                    <li class="page-item disabled">
-                        <a class="page-link" href="#">Newer &rarr;</a>
-                    </li>
-                </ul>
+    <!-- Pagination -->
+    <ul class="pagination justify-content-center mb-4">
+        <li class="page-item">
+            <a class="page-link" href="#">&larr; Older</a>
+        </li>
+        <li class="page-item disabled">
+            <a class="page-link" href="#">Newer &rarr;</a>
+        </li>
+    </ul>
 {% endblock %}
