@@ -2,6 +2,9 @@ import os.path
 
 from django.contrib.auth.models import User
 from django.db import models
+from markdown import markdown
+from markdownx.models import MarkdownxField
+
 
 class Tag(models.Model):
     name = models.CharField(max_length=20, unique=True)
@@ -30,7 +33,7 @@ class Category(models.Model):
 
 class Post(models.Model):
     title = models.CharField(max_length=30)
-    content = models.TextField()
+    content = MarkdownxField()
 
     head_image = models.ImageField(upload_to='blog/images/%Y/%m/%d/', blank=True)
     file_upload = models.FileField(upload_to='blog/files/%Y/%m/%d/', blank=True)
@@ -50,3 +53,6 @@ class Post(models.Model):
 
     def get_file_name(self):
         return os.path.basename(self.file_upload.name)
+
+    def get_content_markdown(self):
+        return markdown(self.content);
